@@ -45,7 +45,6 @@ the spaces, that will be deleted.")
 
   `(defun ,(intern (format "emacs-spacekiller-%s"
                            name)) ()
-     "Kill spaces before."
      (interactive)
 
      (let* ((expression (cdr (assoc major-mode
