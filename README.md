@@ -1,0 +1,2 @@
+# emacs-spacekiller
+Removes spaces.
