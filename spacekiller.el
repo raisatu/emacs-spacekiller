@@ -68,5 +68,5 @@ the spaces, that will be deleted.")
       ? )
   (delete-char 1))
 
-(provide 'emacs-spacekiller)
+(provide 'spacekiller)
 ;;; emacs-spacekiller.el ends here
