@@ -32,26 +32,26 @@
 ;;
 ;;; Code:
 
-(defvar emacs-spacekiller-alist '()
+(defvar spacekiller-alist '()
   "Alist for emacs spacekiller.
 Consists of modes and expressions. The expression will be evaluated to the count of
 the spaces, that will be deleted.")
 
-(defvar emacs-spacekiller-default 'tab-width
+(defvar spacekiller-default 'tab-width
   "Default expression whose evaluation result is a count of spaces that will be deleted.")
 
 (defmacro define-spacekiller (name check-form delete-form)
   (declare (indent 1))
 
-  `(defun ,(intern (format "emacs-spacekiller-%s"
+  `(defun ,(intern (format "spacekiller-%s"
                            name)) ()
      (interactive)
 
      (let* ((expression (cdr (assoc major-mode
-                                    emacs-spacekiller-alist)))
+                                    spacekiller-alist)))
             (count      (eval (if expression
                                   expression
-                                emacs-spacekiller-default))))
+                                spacekiller-default))))
        (if ,check-form
            (dotimes (_i count)
              (if ,check-form
@@ -69,4 +69,4 @@ the spaces, that will be deleted.")
   (delete-char 1))
 
 (provide 'spacekiller)
-;;; emacs-spacekiller.el ends here
+;;; spacekiller.el ends here
