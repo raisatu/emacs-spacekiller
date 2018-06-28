@@ -61,12 +61,12 @@ the spaces, that will be deleted.")
 (define-spacekiller backspace
   (eq (char-before)
       ? )
-  (delete-char -1))
+  (delete-backward-char 1))
 
 (define-spacekiller del
   (eq (char-after)
       ? )
-  (delete-char 1))
+  (delete-forward-char 1))
 
 (provide 'spacekiller)
 ;;; spacekiller.el ends here
